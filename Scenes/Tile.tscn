@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Tile.gd" type="Script" id=1]
+
+[node name="Tile" type="ColorRect"]
+rect_min_size = Vector2( 10, 10 )
+mouse_filter = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="gui_input" from="." to="." method="_on_Tile_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_Tile_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Tile_mouse_exited"]

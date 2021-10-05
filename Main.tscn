@@ -1,0 +1,157 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Resources/kfn_50_ol1.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Resources/kfn_24_ol1.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Resources/kfn_30_ol1.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Grid.tscn" type="PackedScene" id=5]
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 976.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 5
+size_flags_vertical = 3
+custom_constants/separation = 5
+alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
+margin_right = 1920.0
+margin_bottom = 976.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Grid" parent="CanvasLayer/VBoxContainer/HBoxContainer2/CenterContainer" instance=ExtResource( 5 )]
+anchor_left = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 960.0
+margin_top = 488.0
+margin_right = 960.0
+margin_bottom = 488.0
+size_flags_vertical = 3
+custom_constants/vseparation = 2
+custom_constants/hseparation = 2
+
+[node name="MapSizeScroll" type="VScrollBar" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
+visible = false
+margin_left = 1900.0
+margin_right = 1920.0
+margin_bottom = 976.0
+rect_min_size = Vector2( 20, 0 )
+mouse_filter = 1
+size_flags_horizontal = 8
+size_flags_vertical = 3
+min_value = 2.0
+max_value = 50.0
+step = 1.0
+value = 20.0
+rounded = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+margin_top = 980.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 0, 100 )
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+margin_top = 21.0
+margin_right = 264.0
+margin_bottom = 78.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 0.443137 )
+text = "Map Size:"
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+margin_left = 284.0
+margin_top = 6.0
+margin_right = 941.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 657.0
+margin_bottom = 27.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 2 )
+text = "X AXIS"
+
+[node name="MapSizeXAxis" type="HScrollBar" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 37.0
+margin_right = 657.0
+margin_bottom = 87.0
+grow_horizontal = 2
+rect_min_size = Vector2( 500, 50 )
+mouse_filter = 1
+min_value = 2.0
+max_value = 50.0
+step = 1.0
+value = 30.0
+rounded = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+margin_left = 961.0
+margin_top = 6.0
+margin_right = 1619.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 658.0
+margin_bottom = 27.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 2 )
+text = "Y AXIS"
+
+[node name="MapSizeYAxis" type="HScrollBar" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 37.0
+margin_right = 658.0
+margin_bottom = 87.0
+grow_horizontal = 2
+rect_min_size = Vector2( 500, 50 )
+mouse_filter = 1
+min_value = 2.0
+max_value = 50.0
+step = 1.0
+value = 20.0
+rounded = true
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+margin_left = 1639.0
+margin_top = 18.0
+margin_right = 1920.0
+margin_bottom = 81.0
+mouse_filter = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Find path"
+
+[node name="MouseGrab" type="CanvasLayer" parent="."]
+layer = 2
