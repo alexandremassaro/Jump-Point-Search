@@ -2,7 +2,7 @@ extends Node
 class_name Point
 
 var id : int = 0
-var pos : Vector2
+var position : Vector2
 var weight_scale : float = 0.0
 var enabled : bool = false
 
@@ -27,3 +27,6 @@ class PointSorter:
 	
 	static func get_sorted_points(points : Array):
 		return points.sort_custom(PointSorter, "compare")
+	
+	static func is_equal(a : Point, b : Point):
+		return a.id == b.id

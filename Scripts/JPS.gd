@@ -19,6 +19,7 @@ var last_free_id = 0
 const CARDINAL_COST = 1.0
 const DIAGONAL_COST = sqrt(2.0)
 
+
 func solve(begin_point : Point, end_point : Point):
 	iteration += 1
 	var found_route := false
@@ -63,8 +64,19 @@ func solve(begin_point : Point, end_point : Point):
 func estimate_cost(from : Point, to : Point):
 #	assert(from in points, "From point not in array")
 #	assert(from in points, "To point not in array")
-	return from.pos.distance_to(to.pos)
+	return from.position.distance_to(to.position)
 
+
+func get_point_by_id(id : int):
+	for point in points:
+		if point.id == id:
+			return point
+
+
+func get_point_by_position(position : Vector2):
+	for point in points:
+		if point.position == position:
+			return point
 
 func compute_cost(point : Point, neighbour : Point):
 #	assert(neighbour in point.cardinal_neighbours and neighbour in point.diagonal_neighbours, "Not a neighbour of the point")	
